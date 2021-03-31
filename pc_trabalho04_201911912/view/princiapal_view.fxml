@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="456.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Button layoutX="479.0" layoutY="41.0" mnemonicParsing="false" text="+" />
+      <Button layoutX="504.0" layoutY="40.0" mnemonicParsing="false" text="-" />
+      <Button layoutX="479.0" layoutY="68.0" mnemonicParsing="false" text="+" />
+      <Button layoutX="504.0" layoutY="68.0" mnemonicParsing="false" text="-" />
+      <Text layoutX="456.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+   </children>
+</AnchorPane>
