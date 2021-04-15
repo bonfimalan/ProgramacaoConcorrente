@@ -2,7 +2,7 @@
 * Autor: Alan Bonfim Santos
 * Matricula: 201911912
 * Inicio: 04/04/2021 17:39
-* Ultima alteracao: 14/04/2021 18:35
+* Ultima alteracao: 15/04/2021 18:14
 * Nome: Principal.java
 * Funcao: inicia a janela com o fxml
 *************************************************************** */
@@ -12,6 +12,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Principal extends Application{
@@ -33,7 +34,8 @@ public class Principal extends Application{
 
     //manipulando o stage
     stagePrimario.setTitle("Problema dos Trens");
-    stagePrimario.setOnCloseRequest(e -> controlador.fechar());
+    stagePrimario.setOnCloseRequest(e -> controlador.fechar());//definindo uma funcao para ser executado ao fechar
+    stagePrimario.getIcons().add(new Image("/recursos/imagens/icone.png"));//definindo o icone
 
     stagePrimario.setScene(scene);
     stagePrimario.show();
