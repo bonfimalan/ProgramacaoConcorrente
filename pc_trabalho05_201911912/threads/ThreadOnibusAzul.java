@@ -2,7 +2,7 @@
 * Autor: Alan Bonfim Santos
 * Matricula: 201911912
 * Inicio: 04/04/2021 18:21
-* Ultima alteracao: 14/04/2021 18:17
+* Ultima alteracao: 30/04/2021 16:45
 * Nome: ThreadOnibusAzul.java
 * Funcao: controla o movimento do onibus azul e a passagem pelo tunel
 *************************************************************** */
@@ -15,14 +15,16 @@ import javafx.scene.image.ImageView;
 
 public class ThreadOnibusAzul extends Thread {
   private ControladorPrincipal controlador;
-  private int velocidade = 25;
-  private int posicaoX = -58;
+  private int velocidade;
+  private int posicaoX;
   private int posicaoY;
   private ImageView onibus;
 
   public ThreadOnibusAzul(ControladorPrincipal controlador){
     this.controlador = controlador;
     this.onibus = controlador.getOnibusAzul();
+    this.posicaoX = -58;
+    this.velocidade = 25;
     posicaoY = (int) onibus.getY();
   }
 

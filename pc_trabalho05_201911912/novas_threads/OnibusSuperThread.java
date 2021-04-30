@@ -2,7 +2,7 @@
 * Autor: Alan Bonfim Santos
 * Matricula: 201911912
 * Inicio: 30/04/2021 14:40
-* Ultima alteracao: 14/04/2021 18:17
+* Ultima alteracao: 30/04/2021 16:27
 * Nome: OnibusSuperThread.java
 * Funcao: super classe que possui os metodos de movimento base 
 *         de ambos os onibus

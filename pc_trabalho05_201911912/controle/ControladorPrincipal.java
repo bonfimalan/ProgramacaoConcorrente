@@ -54,30 +54,69 @@ public class ControladorPrincipal implements Initializable{
     bandeiraEntradaVermelho2.setVisible(false);
 
     //posicionando os onibus
-    onibusAzul.setX(-54);
-    onibusVermelho.setX(600);
+    onibusAzul.setVisible(false);
+    onibusVermelho.setVisible(false);
 
     threadOnibusAzul = new ThreadOnibusAzul(this);
     threadOnibusVermelho = new ThreadOnibusVermelho(this);
-
-    velocidadeOnibusAzul.setText("40km/h");
-    velocidadeOnibusVermelho.setText("40km/h");
-
-    threadOnibusAzul.start();
-    threadOnibusVermelho.start();
   }//fim metodo initialize
 
   public void iniciar(String opcao){
     switch (opcao){
       case "Protocolo das bandeira":
+        if(!threadOnibusAzul.isAlive() && !threadOnibusVermelho.isAlive()){
+          threadOnibusAzul = new ThreadOnibusAzul(this);
+          threadOnibusVermelho = new ThreadOnibusVermelho(this);
+
+          onibusAzul.setVisible(true);
+          onibusVermelho.setVisible(true);
+
+          onibusAzul.setX(-54);
+          onibusVermelho.setX(600);
+
+          velocidadeOnibusAzul.setText("40km/h");
+          velocidadeOnibusVermelho.setText("40km/h");
+
+          threadOnibusAzul.start();
+          threadOnibusVermelho.start();
+        }
         break;
       case "Variavel de Travamento":
+        if(threadOnibusAzul.isAlive() && threadOnibusVermelho.isAlive()){
+          //usar uma variavel para parar a thread, talvez isso resolva os bugs
+          desativaBandeiras();
+        }
         break;
       case "Estrita Alternancia":
         break;
       case "Peterson":
         break;
     }
+  }
+
+  //metodo para destivar e resetar o protocolo das bandeiras
+  public void desativaBandeiras(){
+    threadOnibusAzul.interrupt();
+    threadOnibusVermelho.interrupt();
+
+    velocidadeOnibusAzul.setText("0");
+    velocidadeOnibusVermelho.setText("0");
+
+    tunelLiberado1 = true;
+    tunelLiberado2 = true;
+
+    onibusAzul.setY(0);
+    onibusVermelho.setY(0);
+    onibusAzul.setRotate(0);
+    onibusVermelho.setRotate(0);
+
+    onibusAzul.setVisible(false);
+    onibusVermelho.setVisible(false);
+
+    bandeiraEntradaAzul1.setVisible(false);
+    bandeiraEntradaAzul2.setVisible(false);
+    bandeiraEntradaVermelho1.setVisible(false);
+    bandeiraEntradaVermelho2.setVisible(false);
   }
 
   //metodo que eh executado ao usuario fechar o programa
