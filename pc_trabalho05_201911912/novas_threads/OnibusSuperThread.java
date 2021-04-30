@@ -12,10 +12,13 @@ package novas_threads;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 
 public abstract class OnibusSuperThread extends Thread{
   protected int velocidade;
   protected ImageView onibus;
+  protected Text velocidadeText;
 
   //esta variavel garante uma forma de desativar as threads
   protected boolean ligado = true;
@@ -27,17 +30,25 @@ public abstract class OnibusSuperThread extends Thread{
   protected int posicaoY;
   protected int rotacao = 0;
 
-  public OnibusSuperThread(int direcao){
+  public OnibusSuperThread(int direcao, AnchorPane painel, Text velocidadeText){
     this.DIRECAO = direcao;
+    this.velocidadeText = velocidadeText;
+    //determina se sera um onibus azul(indo para a direita) ou um onibus vermelho(indo para a esquerda)
     if(DIRECAO == 1){
       posicaoX = -58;
       posicaoY = 216;
       onibus.setImage(new Image("/recursos/imagens/onibusAzul.png"));
+      onibus.setLayoutX(posicaoX);
+      onibus.setLayoutY(posicaoY);
+      Platform.runLater( () -> painel.getChildren().add(onibus));
     }
     else{
       posicaoX = 600;
       posicaoY = 254;
       onibus.setImage(new Image("/recursos/imagens/onibusVermelho.png"));
+      onibus.setLayoutX(posicaoX);
+      onibus.setLayoutY(posicaoY);
+      Platform.runLater( () -> painel.getChildren().add(onibus));
     }
   }
 
@@ -51,10 +62,22 @@ public abstract class OnibusSuperThread extends Thread{
     ligado = false;
   }
 
-  //retorna o onibus, util para posiciona-lo na tela
-  public ImageView getOnibus(){
-    return this.onibus;
+  //-----------------------------------------------------------------------------
+  //metodos para modificar as velocidades
+  public void diminuirVelocidade(){
+    if(velocidade < 25){
+      velocidade +=5;
+      velocidadeText.setText(Integer.toString(1000/velocidade) + "km/h");
+    }
   }
+
+  public void aumentarVelocidade(){
+    if(velocidade > 5){
+      velocidade -=5;
+      velocidadeText.setText(Integer.toString(1000/velocidade) + "km/h");
+    }
+  }
+  //-----------------------------------------------------------------------------
 
   protected void moverPeloTunel(int posicaoParada) throws InterruptedException{
     moverAmbosEixosDescida(posicaoParada);
@@ -133,13 +156,4 @@ public abstract class OnibusSuperThread extends Thread{
     rotacao = 0;
     Platform.runLater( () -> onibus.setRotate(0));//garantindo que o onibus esteja reto ao fim da curva
   }//fim metodo moverAmbosEixosSubida
-
-  //metodos de acesso a velocidade
-  public void setVelocidade(int novaVelocidade){
-    this.velocidade = novaVelocidade;
-  }
-  
-  public int getVelocidade(){
-    return this.velocidade;
-  }
 }

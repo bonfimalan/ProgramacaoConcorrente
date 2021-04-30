@@ -16,7 +16,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import novas_threads.OnibusSuperThread;
 import threads.ThreadOnibusAzul;
 import threads.ThreadOnibusVermelho;
 
@@ -33,17 +35,16 @@ public class ControladorPrincipal implements Initializable{
   @FXML Text velocidadeOnibusAzul;
   @FXML Text velocidadeOnibusVermelho;
 
+  @FXML AnchorPane painel;
+
   private ThreadOnibusAzul threadOnibusAzul;
   private ThreadOnibusVermelho threadOnibusVermelho;
 
+  //adiciona 4 possiveis onibus
+  private OnibusSuperThread[] threads = new OnibusSuperThread[4];
+
   private boolean tunelLiberado1 = true;
   private boolean tunelLiberado2 = true;
-
-  private ControladorMenu menu;
-
-  public ControladorPrincipal(ControladorMenu menu){
-    this.menu = menu;
-  }
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
@@ -65,6 +66,19 @@ public class ControladorPrincipal implements Initializable{
     threadOnibusAzul.start();
     threadOnibusVermelho.start();
   }//fim metodo initialize
+
+  public void iniciar(String opcao){
+    switch (opcao){
+      case "Protocolo das bandeira":
+        break;
+      case "Variavel de Travamento":
+        break;
+      case "Estrita Alternancia":
+        break;
+      case "Peterson":
+        break;
+    }
+  }
 
   //metodo que eh executado ao usuario fechar o programa
   public void fechar(){

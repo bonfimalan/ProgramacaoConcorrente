@@ -9,7 +9,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="71.0" prefWidth="209.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ChoiceBox fx:id="opcoes" layoutY="34.0" prefHeight="26.0" prefWidth="146.0" />
-      <Button layoutX="156.0" layoutY="34.0" mnemonicParsing="false" text="Aplicar" />
+      <Button layoutX="156.0" layoutY="34.0" mnemonicParsing="false" onAction="#aplicar" text="Aplicar" />
       <Label layoutX="7.0" layoutY="11.0" text="Com qual algoritmo deseja viajar?">
          <font>
             <Font size="13.0" />

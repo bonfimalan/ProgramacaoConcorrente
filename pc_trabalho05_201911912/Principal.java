@@ -2,7 +2,7 @@
 * Autor: Alan Bonfim Santos
 * Matricula: 201911912
 * Inicio: 04/04/2021 17:39
-* Ultima alteracao: 30/04/2021 15:43
+* Ultima alteracao: 30/04/2021 16:01
 * Nome: Principal.java
 * Funcao: inicia a janela com o fxml
 *************************************************************** */
@@ -25,16 +25,15 @@ public class Principal extends Application{
   public void start(Stage stagePrimario) throws Exception {
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/princiapal_view.fxml"));
 
-    //controlador para o menu
-    ControladorMenu menuControlador = new ControladorMenu();
     //criando adicionando o controlador ao fxml
-    ControladorPrincipal controlador = new ControladorPrincipal(menuControlador);
+    ControladorPrincipal controlador = new ControladorPrincipal();
     loader.setController(controlador);
 
     AnchorPane root = loader.load();
 
     //adicionando o menu
     loader = new FXMLLoader(getClass().getResource("/view/menu_view.fxml"));
+    ControladorMenu menuControlador = new ControladorMenu(controlador);
     loader.setController(menuControlador);
     AnchorPane pane = loader.load();
     pane.setLayoutX(337);
