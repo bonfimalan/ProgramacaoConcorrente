@@ -39,6 +39,12 @@ public class ControladorPrincipal implements Initializable{
   private boolean tunelLiberado1 = true;
   private boolean tunelLiberado2 = true;
 
+  private ControladorMenu menu;
+
+  public ControladorPrincipal(ControladorMenu menu){
+    this.menu = menu;
+  }
+
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     bandeiraEntradaAzul1.setVisible(false);
