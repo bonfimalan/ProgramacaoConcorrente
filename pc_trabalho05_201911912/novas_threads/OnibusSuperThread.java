@@ -2,7 +2,7 @@
 * Autor: Alan Bonfim Santos
 * Matricula: 201911912
 * Inicio: 30/04/2021 14:40
-* Ultima alteracao: 30/04/2021 16:27
+* Ultima alteracao: 05/05/2021 22:02
 * Nome: OnibusSuperThread.java
 * Funcao: super classe que possui os metodos de movimento base 
 *         de ambos os onibus
@@ -13,12 +13,10 @@ import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
 
 public abstract class OnibusSuperThread extends Thread{
-  protected int velocidade;
+  protected int velocidade = 25;
   protected ImageView onibus;
-  protected Text velocidadeText;
 
   //esta variavel garante uma forma de desativar as threads
   protected boolean ligado = true;
@@ -30,24 +28,27 @@ public abstract class OnibusSuperThread extends Thread{
   protected int posicaoY;
   protected int rotacao = 0;
 
-  public OnibusSuperThread(int direcao, AnchorPane painel, Text velocidadeText){
+  public OnibusSuperThread(int direcao, AnchorPane painel){
     this.DIRECAO = direcao;
-    this.velocidadeText = velocidadeText;
+    onibus = new ImageView();
+
     //determina se sera um onibus azul(indo para a direita) ou um onibus vermelho(indo para a esquerda)
     if(DIRECAO == 1){
       posicaoX = -58;
       posicaoY = 216;
-      onibus.setImage(new Image("/recursos/imagens/onibusAzul.png"));
-      onibus.setLayoutX(posicaoX);
-      onibus.setLayoutY(posicaoY);
+      onibus.setImage(new Image("/recursos/imagens/onibusAzul.png", 56, 24, false, false));
+      onibus.setX(posicaoX);
+      onibus.setY(posicaoY);
+      onibus.setVisible(true);
       Platform.runLater( () -> painel.getChildren().add(onibus));
     }
     else{
       posicaoX = 600;
       posicaoY = 254;
-      onibus.setImage(new Image("/recursos/imagens/onibusVermelho.png"));
-      onibus.setLayoutX(posicaoX);
-      onibus.setLayoutY(posicaoY);
+      onibus.setImage(new Image("/recursos/imagens/onibusVermelho.png", 56, 24, false, false));
+      onibus.setX(posicaoX);
+      onibus.setY(posicaoY);
+      onibus.setVisible(true);
       Platform.runLater( () -> painel.getChildren().add(onibus));
     }
   }
@@ -57,100 +58,96 @@ public abstract class OnibusSuperThread extends Thread{
     //metodo run
   }
 
-  //"desliga" a thread
-  public void desligar(){
+  //"desliga" a thread e remove a imagem do Anchor Pane
+  public void desligar(AnchorPane painel){
+    painel.getChildren().remove(onibus);
     ligado = false;
   }
 
   //-----------------------------------------------------------------------------
-  //metodos para modificar as velocidades
-  public void diminuirVelocidade(){
-    if(velocidade < 25){
-      velocidade +=5;
-      velocidadeText.setText(Integer.toString(1000/velocidade) + "km/h");
-    }
-  }
-
-  public void aumentarVelocidade(){
-    if(velocidade > 5){
-      velocidade -=5;
-      velocidadeText.setText(Integer.toString(1000/velocidade) + "km/h");
-    }
+  //metodos para modificar a velocidade
+  public void setVelocidade(int novaVelocidade){
+    this.velocidade = novaVelocidade;
   }
   //-----------------------------------------------------------------------------
 
   protected void moverPeloTunel(int posicaoParada) throws InterruptedException{
-    moverAmbosEixosDescida(posicaoParada);
+    moverAmbosEixosDescendoEixoY(posicaoParada);
     posicaoParada+=(100 * DIRECAO);
     moverEixoX(posicaoParada);
     posicaoParada+=(20 * DIRECAO);
-    moverAmbosEixosSubida(posicaoParada);
+    moverAmbosEixosSubindoEixoY(posicaoParada);
   }//fim metodo moverPeloTunel
 
   protected void moverEixoX(int posicaoParada) throws InterruptedException{
     while(posicaoX != posicaoParada && ligado){
       posicaoX += DIRECAO;
       Thread.sleep(velocidade);
-      Platform.runLater( () -> onibus.setLayoutX(posicaoX));
+      Platform.runLater( () -> onibus.setX(posicaoX));
     }
   }//fim metodo moverEixoX
 
-  protected void moverAmbosEixosDescida(int posicaoParada) throws InterruptedException{
+  protected void moverAmbosEixosDescendoEixoY(int posicaoParada) throws InterruptedException{
     //nesse while o onibus esta rotacionando para baixo enquanto move nos eixos x e y
-    while(posicaoX != posicaoParada-10 && ligado){
+    int novaPosicao = posicaoParada +(-10 * DIRECAO);
+    while(posicaoX != novaPosicao && ligado){
       Thread.sleep(velocidade);
       Platform.runLater( () ->{ 
-        onibus.setLayoutX(posicaoX);
-        onibus.setLayoutY(posicaoY);
+        onibus.setX(posicaoX);
+        onibus.setY(posicaoY);
         onibus.setRotate(rotacao);
       });
       rotacao+=3;
       posicaoX+=DIRECAO;
-      posicaoY++;
+      posicaoY+=DIRECAO;
     }//fim while
 
     //nesse while o onibus esta rotacionando para cima enquanto move nos eixos x e y
     while(posicaoX != posicaoParada && ligado){
       Thread.sleep(velocidade);
       Platform.runLater( () ->{ 
-        onibus.setLayoutX(posicaoX);
-        onibus.setLayoutY(posicaoY);
+        onibus.setX(posicaoX);
+        onibus.setY(posicaoY);
         onibus.setRotate(rotacao);
       });
       rotacao-=3;
       posicaoX+=DIRECAO;
-      posicaoY++;
+      posicaoY+=DIRECAO;
     }//fim while
 
     rotacao = 0;
     Platform.runLater( () -> onibus.setRotate(0));
   }//fim metodo moverAmbosEixosDescida
 
-  protected void moverAmbosEixosSubida(int posicaoParada) throws InterruptedException{
+  protected void moverAmbosEixosSubindoEixoY(int posicaoParada) throws InterruptedException{
+    //y++ = subidada do onibus vermelho
+    //y-- = subida do onibus azul
+    int modificadorY = DIRECAO * -1;
+    int novaPosicao = posicaoParada +(-10 * DIRECAO);
     //nesse while o onibus esta rotacionando para cima enquanto move nos eixos x e y
-    while(posicaoX != posicaoParada-10 && ligado){
+    while(posicaoX != novaPosicao && ligado){
       Thread.sleep(velocidade);
       Platform.runLater( () ->{ 
-        onibus.setLayoutX(posicaoX);
-        onibus.setLayoutY(posicaoY);
+        onibus.setX(posicaoX);
+        onibus.setY(posicaoY);
         onibus.setRotate(rotacao);
       });
       rotacao-=3;
       posicaoX+=DIRECAO;
-      posicaoY--;
+      posicaoY+=modificadorY;
     }//fim while
 
     //nesse while o onibus esta rotacionando para baixo enquanto move nos eixos x e y
     while(posicaoX != posicaoParada && ligado){
       Thread.sleep(velocidade);
       Platform.runLater( () ->{ 
-        onibus.setLayoutX(posicaoX);
-        onibus.setLayoutY(posicaoY);
+        onibus.setX(posicaoX);
+        onibus.setY(posicaoY);
         onibus.setRotate(rotacao);
       });
       rotacao+=3;
       posicaoX+=DIRECAO;
-      posicaoY--;
+      posicaoY+=modificadorY;
     }//fim while
 
     rotacao = 0;

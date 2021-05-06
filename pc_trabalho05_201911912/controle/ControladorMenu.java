@@ -3,9 +3,8 @@
 * Matricula: 201911912
 * Inicio: 30/04/2021 15:30
 * Ultima alteracao: 30/04/2021 16:08
-* Nome: ControladorPrincipal.java
-* Funcao: Controla as modificacoes no fxml e algumas acoes nas 
-          threads
+* Nome: ControladorMenu.java
+* Funcao: Controlador para o menu de selecao de solucao
 *************************************************************** */
 package controle;
 

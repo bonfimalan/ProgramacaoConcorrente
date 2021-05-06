@@ -20,7 +20,7 @@
       </ImageView>
       <AnchorPane fx:id="painel" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox layoutX="14.0" layoutY="163.0" prefWidth="230.0">
+            <HBox fx:id="hBoxVelocidadeAzul" layoutX="14.0" layoutY="163.0" prefWidth="230.0">
                <children>
                   <VBox>
                      <children>
@@ -44,7 +44,7 @@
                   <Button mnemonicParsing="false" onAction="#diminuirVelocidadeAzul" prefWidth="25.0" text="-" />
                </children>
             </HBox>
-            <HBox layoutX="14.0" layoutY="300.0" prefWidth="230.0">
+            <HBox fx:id="hBoxVelocidadeVermelho" layoutX="14.0" layoutY="300.0" prefWidth="230.0">
                <children>
                   <VBox>
                      <children>
