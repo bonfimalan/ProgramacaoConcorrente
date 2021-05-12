@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../recursos/imagens/plano%20de%20fundo.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="painel" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox fx:id="hBoxVelocidadeAzul" layoutX="14.0" layoutY="163.0" prefWidth="230.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Velocidade onibus azul: ">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="velocidadeOnibusAzul" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#aumentarVelocidadeAzul" text="+" />
+                  <Button mnemonicParsing="false" onAction="#diminuirVelocidadeAzul" prefWidth="25.0" text="-" />
+               </children>
+            </HBox>
+            <HBox fx:id="hBoxVelocidadeVermelho" layoutX="14.0" layoutY="300.0" prefWidth="230.0">
+               <children>
+                  <VBox>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Velocidade onibus vermelho: ">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="velocidadeOnibusVermelho" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <Region prefHeight="1.0" prefWidth="1.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#aumentarVelocidadeVermelho" text="+" />
+                  <Button mnemonicParsing="false" onAction="#diminuirVelocidadeVermelho" prefWidth="25.0" text="-" />
+               </children>
+            </HBox>
+            <Text layoutX="14.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="As velocidades mostradas aqui sao ficticias, nenhum passageiro se ferio durante o trajeto">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="bandeiraEntradaVermelho1" fitHeight="44.0" fitWidth="34.0" layoutX="182.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagens/interrompaOnibus2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bandeiraEntradaAzul2" fitHeight="44.0" fitWidth="34.0" layoutX="378.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagens/interrompaOnibus1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bandeiraEntradaVermelho2" fitHeight="44.0" fitWidth="34.0" layoutX="425.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagens/interrompaOnibus2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="bandeiraEntradaAzul1" fitHeight="44.0" fitWidth="34.0" layoutX="139.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagens/interrompaOnibus1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="onibusAzul" fitHeight="26.0" fitWidth="54.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagens/onibusAzul.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="onibusVermelho" fitHeight="26.0" fitWidth="54.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagens/onibusVermelho.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
