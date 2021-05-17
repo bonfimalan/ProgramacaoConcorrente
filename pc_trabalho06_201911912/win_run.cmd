@@ -1,5 +1,6 @@
-mkdir bin\view
-Copy view\*.fxml bin\view
+@mkdir bin\view bin\resources\images
+@Copy view\*.fxml bin\view
+@Copy resources\images\*.png bin\resources\images
 javac -d bin Principal.java
-cd bin
+@cd bin
 java Principal

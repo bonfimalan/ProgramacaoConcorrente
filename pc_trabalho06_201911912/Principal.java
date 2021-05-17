@@ -1,17 +1,21 @@
 /********************************************************************
  * Author: Alan Bonfim Santos
  * Registration: 201911912
- * Initial date: 12/06/2021 16:16
- * Last update:
+ * Initial date: 12/05/2021 16:16
+ * Last update: 17/05/2021 17:02
  * Name: Principal.java
- * Function: 
+ * Function: behold! the main class that starts everything
  *******************************************************************/
 import controller.PrincipalController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import threads.*;
+import controller.*;
 
 public class Principal extends Application{
   public static void main(String[] args) {
@@ -28,6 +32,11 @@ public class Principal extends Application{
 
     Scene scene = new Scene(root);
 
+    primaryStage.setTitle("That's what ninjas do?");
+    primaryStage.getIcons().add(new Image("/resources/images/box.png"));
+    primaryStage.setOnCloseRequest(event -> {
+      controller.onClose();
+    });
     primaryStage.setScene(scene);
     primaryStage.show();
   }
