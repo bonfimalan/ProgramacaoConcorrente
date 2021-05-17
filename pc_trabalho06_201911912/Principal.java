@@ -32,7 +32,7 @@ public class Principal extends Application{
 
     Scene scene = new Scene(root);
 
-    primaryStage.setTitle("That's what ninjas do?");
+    primaryStage.setTitle("Is that what ninjas do?");
     primaryStage.getIcons().add(new Image("/resources/images/box.png"));
     primaryStage.setOnCloseRequest(event -> {
       controller.onClose();
