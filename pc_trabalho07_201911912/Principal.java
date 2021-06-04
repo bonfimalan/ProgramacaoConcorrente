@@ -2,7 +2,7 @@
  * Author: Alan Bonfim Santos
  * Registration: 201911912
  * Initial date: 30/05/2021 12:34
- * Last update: 30/05/2021 12:43
+ * Last update: 04/06/2021 12:26
  * Name: Principal.java
  * Function: main class, that starts the javafx application
  *******************************************************************/

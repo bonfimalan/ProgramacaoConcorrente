@@ -2,7 +2,7 @@
  * Author: Alan Bonfim Santos
  * Registration: 201911912
  * Initial date: 30/05/2021 13:36
- * Last update: 01/06/2021 19:56
+ * Last update: 04/06/2021 13:20
  * Name: PhilosopherThread.java
  * Function: thread that does the actions of the philosopher
  *******************************************************************/
@@ -11,19 +11,30 @@ package thread;
 
 import controle.MainController;
 import global.Variables;
+import javafx.scene.Scene;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class PhilosopherThread  extends Thread{
   private MainController controller;
   private ImageView fork;
   private ImageView actionCircle;
-  private Slider speedSlider;
-  private int time = 2000;
+  private Slider thinkingSlider;
+  private Slider eatingSlider;
+  private int thinkingTime = 2000;
+  private int eatingTime = 2000;
   private final int ID;
   private final int LEFT;
   private final int RIGHT;
+
+  //objects to the mouse event
+  private AnchorPane pane;
+  private Stage stage;
+  private ImageView paneImage;
 
   @Override
   public void run(){
@@ -38,20 +49,40 @@ public class PhilosopherThread  extends Thread{
     }
   }//end run
 
-  public PhilosopherThread(int id, ImageView fork, ImageView actionCircle, Slider speedSlider, MainController controller){
+  public PhilosopherThread(int id, ImageView fork, ImageView actionCircle, Slider thinkingSlider, Slider eatingSlider, MainController controller){
     this.controller = controller;
     this.ID = id;
     this.LEFT = (id-1+5) % 5;
     this.RIGHT = (id+1) % 5;
     this.fork = fork;
     this.actionCircle = actionCircle;
-    this.speedSlider = speedSlider;
-    configSliderSpeed();
+    this.thinkingSlider = thinkingSlider;
+    this.eatingSlider = eatingSlider;
+
+    //the method that configs the two sliders
+    configSliderThinking();
+    configSliderEating();
+
+    //calls to the methods that configs the mouse event in the circle image and the window
+    configImageShowCase();
+    configMouseEvent();
   }//end constructor
 
   public void think() throws InterruptedException{
     System.out.println("Filosofo " + ID + ": to pensando to pensando");
-    sleep(time);
+    int cont = 1000;
+    
+    //yeah, maybe there's a lot of calls to the semaphore
+    //acceess the critic region
+    //the thinkingTime is a shared resource between the slider in the javafx thread and this thread
+    Variables.alanMutex.acquire(); 
+    while(cont<thinkingTime){
+      Variables.alanMutex.release();
+      sleep(1000); //it sleeps for 1 second
+      cont+=1000;
+      Variables.alanMutex.acquire();
+    }
+    Variables.alanMutex.release();
   }//end think
 
   //take the fork
@@ -67,7 +98,18 @@ public class PhilosopherThread  extends Thread{
 
   public void eat() throws InterruptedException{
     System.out.println("Filosofo " + ID + ": hmmmmm espaguetezinho");
-    sleep(time);
+    int cont = 1000;
+
+    //acceess the critic region
+    //the thinkingTime is a shared resource between the slider in the javafx thread and this thread
+    Variables.alanMutex.acquire(); 
+    while(cont<eatingTime){
+      Variables.alanMutex.release();
+      sleep(1000); //it sleeps for 1 second
+      cont+=1000;
+      Variables.alanMutex.acquire();
+    }
+    Variables.alanMutex.release();
   }//end eat
 
   public void returnFork() throws InterruptedException{
@@ -91,9 +133,9 @@ public class PhilosopherThread  extends Thread{
         && Variables.states[rightFork] != Variables.EATING){
       
       //commands that changes the interface, it take the forks
-      controller.getThread(id).changeFork(); //the philosophe takes the two forks
       controller.changeVisible(id); //the left fork has the same id to the philosophe
       controller.changeVisible(rightFork);
+      controller.getThread(id).changeFork(); //the philosophe takes the two forks
 
       Variables.states[id] = Variables.EATING;
       controller.getThread(id).eatingImage();//this changes the circle gif
@@ -101,6 +143,49 @@ public class PhilosopherThread  extends Thread{
       Variables.arraySemaphore[id].release();
     }
   }//and test
+
+  public void configMouseEvent(){
+    //show the stage in the mouse position
+    actionCircle.setOnMouseEntered(mouseEvent -> {
+      stage.setX(mouseEvent.getScreenX() + 5);
+      stage.setY(mouseEvent.getScreenY() + 5);
+      stage.show();
+    });
+    //move the stage with the mouse
+    actionCircle.setOnMouseMoved(mouseEvent -> {
+      stage.setX(mouseEvent.getScreenX() + 5);
+      stage.setY(mouseEvent.getScreenY() + 5);
+    });
+    //close the stage
+    actionCircle.setOnMouseExited(mouseEvent -> {
+      stage.close();
+    });
+  }//end configMouseEvent
+
+  //configs to the mouse event in the images
+  public void configImageShowCase(){
+    paneImage = new ImageView();
+    pane = new AnchorPane();
+    stage = new Stage();
+
+    //when the circle around the philosopher changes, it changes the paneImage too
+    actionCircle.imageProperty().addListener( (v, oldValue, newValue) -> {
+        paneImage.setImage(newValue);
+    });
+
+    //configs to the pane
+    pane.setPrefSize(200, 200);
+    pane.getChildren().setAll(paneImage);
+
+    //cofigs to the image size
+    paneImage.setFitHeight(200);
+    paneImage.setFitWidth(200);
+
+    //adding a scene to the stage
+    Scene scene = new Scene(pane);
+    stage.setScene(scene);
+    stage.initStyle(StageStyle.UNDECORATED);
+  }//end configImageShowCase
 
   public void changeFork(){
     if(fork.isVisible()) fork.setVisible(false);
@@ -131,13 +216,26 @@ public class PhilosopherThread  extends Thread{
     return this.RIGHT;
   }
 
-  //configurate the speed slider
-  private void configSliderSpeed(){
-    speedSlider.setOnMouseClicked(mouseEvent ->{
-      time = (int) speedSlider.getValue();
+  //configurate the thinking slider
+  private void configSliderThinking() {
+    thinkingSlider.valueProperty().addListener( (v, oldValue, newValue) ->{
+      try{
+        Variables.alanMutex.acquire();
+        thinkingTime = newValue.intValue() * 1000;
+        Variables.alanMutex.release();
+      } catch(InterruptedException e){ }
     });
-    speedSlider.setOnMouseExited(mouseEvent -> {
-      time = (int) speedSlider.getValue();
+  }//end configSliderThinking
+
+  
+  //configurate the eating slider
+  private void configSliderEating(){
+    eatingSlider.valueProperty().addListener( (v, oldValue, newValue) ->{
+      try{
+        Variables.alanMutex.acquire();
+        eatingTime = newValue.intValue() * 1000;
+        Variables.alanMutex.release();
+      }catch(InterruptedException e){ }
     });
-  }//end configSliderSpeed
+  }//end configSliderEating
 }

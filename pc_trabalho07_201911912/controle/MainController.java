@@ -2,7 +2,7 @@
  * Author: Alan Bonfim Santos
  * Registration: 201911912
  * Initial date: 30/05/2021 12:36
- * Last update: 01/06/2021 19:00
+ * Last update: 04/06/2021 13:03
  * Name: MainController.java
  * Function: controls the changes in the main view
  *******************************************************************/
@@ -21,11 +21,17 @@ import javafx.scene.image.ImageView;
 import thread.PhilosopherThread;
 
 public class MainController implements Initializable{
-  @FXML Slider slider0;
-  @FXML Slider slider1;
-  @FXML Slider slider2;
-  @FXML Slider slider3;
-  @FXML Slider slider4;
+  @FXML Slider sliderThinking0;
+  @FXML Slider sliderThinking1;
+  @FXML Slider sliderThinking2;
+  @FXML Slider sliderThinking3;
+  @FXML Slider sliderThinking4;
+
+  @FXML Slider sliderEating0;
+  @FXML Slider sliderEating1;
+  @FXML Slider sliderEating2;
+  @FXML Slider sliderEating3;
+  @FXML Slider sliderEating4;
   
   @FXML ImageView fork0;
   @FXML ImageView fork1;
@@ -46,7 +52,8 @@ public class MainController implements Initializable{
   @FXML ImageView circle4;
 
 
-  private Slider[] sliders;
+  private Slider[] slidersThinking;
+  private Slider[] slidersEating;
   private ImageView[] forks;
   private ImageView[] philosopherForks;
   private ImageView[] circles;
@@ -55,8 +62,11 @@ public class MainController implements Initializable{
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     //creating a array that has the sliders and pass the reference to the class atribute
-    Slider[] slidersReference = {slider0, slider1, slider2, slider3, slider4};
-    sliders = slidersReference;
+    Slider[] slidersReference = {sliderThinking0, sliderThinking1, sliderThinking2, sliderThinking3, sliderThinking4};
+    slidersThinking = slidersReference;
+
+    Slider[] slidersReference2 = {sliderEating0, sliderEating1, sliderEating2, sliderEating3, sliderEating4};
+    slidersEating = slidersReference2;
 
     //creating a array that has the forks and pass the reference to the class atribute
     ImageView[] forksReference = {fork0, fork1, fork2, fork3, fork4};
@@ -73,7 +83,7 @@ public class MainController implements Initializable{
   //method that creates the threads, starts the threads and create the semaphores
   public void instanceAndStartThreads(){
     for(int i=0; i<5; i++){
-      threads[i] = new PhilosopherThread(i, philosopherForks[i], circles[i], sliders[i], this);
+      threads[i] = new PhilosopherThread(i, philosopherForks[i], circles[i], slidersThinking[i], slidersEating[i], this);
       Variables.arraySemaphore[i] = new Semaphore(0);
     }
 
