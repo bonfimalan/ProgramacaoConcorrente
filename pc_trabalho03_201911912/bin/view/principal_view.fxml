@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="665.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <children>
+      <VBox layoutX="491.0" layoutY="7.0" prefHeight="401.0" prefWidth="167.0" spacing="5.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Idades:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <HBox prefHeight="2.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pai:" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="imgLapidePai" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtIdadePai" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="34.0" prefHeight="2.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filho 1:" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="imgLapidePrimeiroFilho" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtIdadePrimeiroFilho" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="400.0" prefHeight="2.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filho 2:" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="imgLapideSegundoFilho" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtIdadeSegundoFilho" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="398.0" prefHeight="2.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filho 3:" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="imgLapideTerceiroFilho" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtIdadeTerceiroFilho" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="398.0" prefHeight="2.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Neto 1:" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="imgLapidePrimeiroNeto" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtIdadePrimeiroNeto" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="398.0" prefHeight="2.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Neto 2:" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="imgLapideSegundoNeto" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtIdadeSegundoNeto" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="138.0" prefHeight="2.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bisneto:" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fx:id="imgLapideBisneto" fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtIdadeBisneto" layoutX="10.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <Region prefHeight="2.0" prefWidth="2.0" VBox.vgrow="ALWAYS" />
+            <HBox fx:id="hBoxVolume" prefHeight="2.0" prefWidth="200.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Volume: ">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Text fx:id="txtVolume" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </Text>
+                  <Region prefHeight="200.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#aumentarVolume" prefHeight="6.0" prefWidth="16.0" text="+">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="68.0" layoutY="10.0" mnemonicParsing="false" onAction="#diminuirVolume" prefHeight="6.0" prefWidth="16.0" text="-">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#iniciar" text="Iniciar" />
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding></VBox>
+      <AnchorPane layoutX="133.0" layoutY="71.0" prefHeight="408.0" prefWidth="482.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <ImageView fitHeight="436.0" fitWidth="482.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../recursos/imagens/arvoreView.png" />
+               </image>
+            </ImageView>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fx:id="imageViewPai" fitHeight="50.0" fitWidth="50.0" layoutX="193.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageViewPrimeiroFilho" fitHeight="50.0" fitWidth="50.0" layoutX="107.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageViewSegundoFilho" fitHeight="50.0" fitWidth="50.0" layoutX="205.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageViewTerceiroFilho" fitHeight="50.0" fitWidth="50.0" layoutX="298.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageViewPrimeiroNeto" fitHeight="50.0" fitWidth="50.0" layoutX="72.0" layoutY="113.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageViewBisneto" fitHeight="50.0" fitWidth="50.0" layoutX="54.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageViewSegundoNeto" fitHeight="50.0" fitWidth="50.0" layoutX="202.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
+                  <Text fx:id="txtPai" fill="WHITE" layoutX="207.0" layoutY="353.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pai" visible="false">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtPrimeiroFilho" fill="WHITE" layoutX="110.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filho 1" visible="false">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtSegundoFilho" fill="WHITE" layoutX="208.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filho 2" visible="false">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtTerceiroFilho" fill="WHITE" layoutX="300.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Filho 3" visible="false">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtPrimeiroNeto" fill="WHITE" layoutX="75.0" layoutY="177.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neto 1" visible="false">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtSegundoNeto" fill="WHITE" layoutX="205.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neto 2" visible="false">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="txtBisneto" fill="WHITE" layoutX="57.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bisneto" visible="false">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Text>
+               </children></AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

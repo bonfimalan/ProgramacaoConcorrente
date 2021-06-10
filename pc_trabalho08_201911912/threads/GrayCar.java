@@ -43,9 +43,12 @@ public class GrayCar extends SuperThread{
         //going to the left
         car.setRotate(270);
         goLeft(580);
-        //try to access all the tree critic region
-        //because it can cause deadlock in those three cars
-        //so all the tree are one critic region to this car
+        /*
+          try to access all the tree critic region
+          because it can cause deadlock in those three cars
+          so all the tree regions are one critic region to this car
+          there's a screenshot in the /resouces/images/editable directory that shows what happens
+        */
         Variables.grayYellow.acquire();//try to enter the gray-yellow critic region
         Variables.grayYellowGreen.acquire();//try to enter the gray-yellow-green critic region
         Variables.grayGreen.acquire();//try to enter the gray-green critic region
