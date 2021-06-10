@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+   <children>
+      <ImageView fitHeight="450.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/images/background.png" />
+         </image>
+      </ImageView>
+      <VBox fx:id="vBoxProducers" layoutY="100.0" prefHeight="200.0" prefWidth="100.0" />
+      <VBox fx:id="vBoxConsumers" layoutX="305.0" layoutY="100.0" prefHeight="200.0" prefWidth="100.0" />
+      <HBox layoutY="396.0">
+         <children>
+            <Label text="Buffer cont: ">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelCount" layoutX="10.0" layoutY="10.0" text="0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="83.0" layoutY="10.0" text="/10">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
