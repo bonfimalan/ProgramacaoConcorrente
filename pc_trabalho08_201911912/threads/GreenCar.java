@@ -48,7 +48,7 @@ public class GreenCar extends SuperThread{
 
         //going down
         car.setRotate(180);
-        goDown(360);
+        goDown(380);
         Variables.blackGreen.release();//exit the black-green critic region
         Variables.blackYellowGreen.release();//exit the black-yellow-green critic region
         goDown(510);

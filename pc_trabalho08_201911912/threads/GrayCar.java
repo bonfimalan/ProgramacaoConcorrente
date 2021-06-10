@@ -2,7 +2,7 @@
  * Author: Alan Bonfim Santos
  * Registration: 201911912
  * Initial date: 07/06/2021 21:00
- * Last update: 09/06/2021 21:38
+ * Last update: 10/06/2021 01:11
  * Name: GrayCar.java
  * Function: thread with the gray car moviments
  *******************************************************************/
@@ -46,9 +46,9 @@ public class GrayCar extends SuperThread{
         //try to access all the tree critic region
         //because it can cause deadlock in those three cars
         //so all the tree are one critic region to this car
-        Variables.grayGreen.acquire();//try to enter the gray-green critic region
         Variables.grayYellow.acquire();//try to enter the gray-yellow critic region
         Variables.grayYellowGreen.acquire();//try to enter the gray-yellow-green critic region
+        Variables.grayGreen.acquire();//try to enter the gray-green critic region
         goLeft(360);
         goLeft(320);
         Variables.grayGreen.release();//exit the gray-green critic region

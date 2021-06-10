@@ -2,7 +2,7 @@
  * Author: Alan Bonfim Santos
  * Registration: 201911912
  * Initial date: 07/06/2021 21:41
- * Last update: 09/06/2021 23:33
+ * Last update: 10/06/2021 01:09
  * Name: BlueCar.java
  * Function: thread with the gray car moviments
  *******************************************************************/
@@ -38,10 +38,11 @@ public class BlueCar extends SuperThread{
         //going down
         car.setRotate(180);
         goDown(360);
-        Variables.grayBlue.release();//exit the gray-blue critic region
 
         //going to the rigth
         car.setRotate(90);
+        goRight(40);
+        Variables.grayBlue.release();//exit the gray-blue critic region
         goRight(120);
         Variables.blueYellow.acquire();//try to enter the blue-yellow critic region
         goRight(230);

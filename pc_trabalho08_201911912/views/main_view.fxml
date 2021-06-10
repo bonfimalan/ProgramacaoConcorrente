@@ -12,53 +12,53 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="850.0" style="-fx-background-color: #cccccc;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="530.0" prefWidth="850.0" style="-fx-background-color: #cccccc;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
    <children>
       <AnchorPane fx:id="paneTrack" layoutX="89.0" layoutY="48.0" prefHeight="530.0" prefWidth="700.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="530.0" fitWidth="700.0" layoutX="206.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fx:id="trackImageView" fitHeight="530.0" fitWidth="700.0" layoutX="206.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@../resources/images/track.png" />
                </image>
             </ImageView>
             <ImageView fx:id="grayCar" fitHeight="30.0" fitWidth="20.0" layoutX="30.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
-                  <Image url="@../resources/images/2020-10-14.jpg" />
+                  <Image url="@../resources/images/carGray.png" />
                </image>
             </ImageView>
             <ImageView fx:id="brownCar" fitHeight="30.0" fitWidth="20.0" layoutX="120.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/2020-10-14.jpg" />
+                  <Image url="@../resources/images/carBrown.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="pinkCar" fitHeight="30.0" fitWidth="20.0" layoutX="559.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="pinkCar" fitHeight="30.0" fitWidth="20.0" layoutX="560.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/2020-10-14.jpg" />
+                  <Image url="@../resources/images/carPink.png" />
                </image>
             </ImageView>
             <ImageView fx:id="blueCar" fitHeight="30.0" fitWidth="20.0" layoutX="76.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/2020-10-14.jpg" />
+                  <Image url="@../resources/images/carBlue.png" />
                </image>
             </ImageView>
             <ImageView fx:id="yellowCar" fitHeight="30.0" fitWidth="20.0" layoutX="120.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/2020-10-14.jpg" />
+                  <Image url="@../resources/images/carYellow.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="blackCar" fitHeight="30.0" fitWidth="20.0" layoutX="285.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="blackCar" fitHeight="30.0" fitWidth="20.0" layoutX="285.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/2020-10-14.jpg" />
+                  <Image url="@../resources/images/carBlack.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="greenCar" fitHeight="30.0" fitWidth="20.0" layoutX="559.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="greenCar" fitHeight="30.0" fitWidth="20.0" layoutX="560.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/2020-10-14.jpg" />
+                  <Image url="@../resources/images/carGreen.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="redCar" fitHeight="30.0" fitWidth="20.0" layoutX="622.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="redCar" fitHeight="30.0" fitWidth="20.0" layoutX="622.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../resources/images/2020-10-14.jpg" />
+                  <Image url="@../resources/images/carRed.png" />
                </image>
             </ImageView>
          </children>

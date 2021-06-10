@@ -2,7 +2,7 @@
  * Author: Alan Bonfim Santos
  * Registration: 201911912
  * Initial date: 07/06/2021 19:00
- * Last update: 07/06/2021 22:51
+ * Last update: 10/06/2021 01:00
  * Name: Principal.java
  * Function: the main class that loads the fxml to the stage and shows it
  *******************************************************************/
@@ -12,6 +12,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
  public class Principal extends Application{
@@ -33,6 +34,8 @@ import javafx.stage.Stage;
       controller.onClose();
       System.exit(0);
     });
+    primaryStage.setTitle("Alan the bald in the Alanverso - traffic edition");
+    primaryStage.getIcons().add(new Image("/resources/images/alan.png"));
     primaryStage.setResizable(false);
     primaryStage.setScene(scene);
     primaryStage.show();

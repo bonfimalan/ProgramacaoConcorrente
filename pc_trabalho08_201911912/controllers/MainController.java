@@ -52,7 +52,7 @@ public class MainController implements Initializable{
   @FXML private Label yPosition;
   @FXML private CheckBox debbugingCheckBox;
   @FXML private AnchorPane paneTrack;
-
+  @FXML private ImageView trackImageView;
   private SuperThread[] threads = new SuperThread[8];
 
   @Override
@@ -90,11 +90,13 @@ public class MainController implements Initializable{
       if(debbugingCheckBox.isSelected()){
         setMousePositionConfiguration();
         vboxPositions.setVisible(true);
+        trackImageView.setImage(new Image("/resources/images/trackDebugging.png"));
         //change the cursor that appears when the mouse is over the anchor pane to a cross
         Image cursor = new Image("/resources/images/cursor.png", 15, 15, false, false);
         paneTrack.setCursor(new ImageCursor(cursor, 7.5, 7.5));
       }
       else{
+        trackImageView.setImage(new Image("/resources/images/track.png"));
         paneTrack.setOnMouseMoved(null);
         paneTrack.setCursor(Cursor.DEFAULT);
         vboxPositions.setVisible(false);
