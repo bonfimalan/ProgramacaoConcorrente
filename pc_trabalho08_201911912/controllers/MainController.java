@@ -2,7 +2,7 @@
  * Author: Alan Bonfim Santos
  * Registration: 201911912
  * Initial date: 07/06/2021 19:04
- * Last update:
+ * Last update: 10/06/2021 22:20
  * Name: MainController.java
  * Function: holds the atributes and methods that affect the scene
  *******************************************************************/
@@ -46,6 +46,28 @@ public class MainController implements Initializable{
   @FXML private ImageView greenCar;
   @FXML private ImageView redCar;
 
+  //speed labels
+  @FXML private Label labelSpeedGray;
+  @FXML private Label labelSpeedBrown;
+  @FXML private Label labelSpeedPink;
+  @FXML private Label labelSpeedBlue;
+  @FXML private Label labelSpeedYellow;
+  @FXML private Label labelSpeedBlack;
+  @FXML private Label labelSpeedGreen;
+  @FXML private Label labelSpeedRed;
+
+  //works
+  @FXML private ImageView work1;
+  @FXML private ImageView work2;
+  @FXML private ImageView work3;
+  @FXML private ImageView work4;
+  @FXML private ImageView work5;
+  @FXML private ImageView work6;
+  @FXML private ImageView work7;
+  private ImageView works[];
+
+  @FXML private CheckBox hideWorksCheckBox;
+
   //debbugging atributes
   @FXML private VBox vboxPositions;
   @FXML private Label xPosition;
@@ -57,25 +79,24 @@ public class MainController implements Initializable{
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {
-    threads[0] = new GrayCar(sliderGray, grayCar);
-    threads[1] = new BrownCar(sliderBrown, brownCar);
-    threads[2] = new PinkCar(sliderPink, pinkCar);
-    threads[3] = new BlueCar(sliderBlue, blueCar);
-    threads[4] = new BlackCar(sliderBlack, blackCar);
-    threads[5] = new RedCar(sliderRed, redCar);
-    threads[6] = new YellowCar(sliderYellow, yellowCar);
-    threads[7] = new GreenCar(sliderGreen, greenCar);
+    threads[0] = new GrayCar(sliderGray, grayCar, labelSpeedGray);
+    threads[1] = new BrownCar(sliderBrown, brownCar, labelSpeedBrown);
+    threads[2] = new PinkCar(sliderPink, pinkCar, labelSpeedPink);
+    threads[3] = new BlueCar(sliderBlue, blueCar, labelSpeedBlue);
+    threads[4] = new BlackCar(sliderBlack, blackCar, labelSpeedBlack);
+    threads[5] = new RedCar(sliderRed, redCar, labelSpeedRed);
+    threads[6] = new YellowCar(sliderYellow, yellowCar, labelSpeedYellow);
+    threads[7] = new GreenCar(sliderGreen, greenCar, labelSpeedGreen);
 
-    threads[0].start();
-    threads[1].start();
-    threads[2].start();
-    threads[3].start();
-    threads[4].start();
-    threads[5].start();
-    threads[6].start();
-    threads[7].start();
+    for(SuperThread t : threads)
+      t.start();
 
-    checkBoxConfig();
+    ImageView[] worksReference = {work1, work2, work3, work4, work5,work6,work7};
+    works = worksReference;
+    
+
+    checkBoxDebbuggingConfig();
+    checkBoxWorksConfig();
   }//end initialize
 
   public void onClose(){
@@ -83,8 +104,23 @@ public class MainController implements Initializable{
       t.interrupt();
   }//end onClose
 
+  public void checkBoxWorksConfig(){
+    hideWorksCheckBox.setCursor(Cursor.HAND);
+    hideWorksCheckBox.setOnAction(event -> {
+      if(hideWorksCheckBox.isSelected()){
+        for(ImageView imageView : works)
+          imageView.setVisible(false);
+      }
+      else{
+        for(ImageView imageView : works)
+          imageView.setVisible(true);
+      }
+    });
+  }//end checkBoxWorksConfig
+
   //Debugging  tools ----------------------------------------------------------
-  public void checkBoxConfig(){
+  public void checkBoxDebbuggingConfig(){
+    debbugingCheckBox.setCursor(Cursor.HAND);
     debbugingCheckBox.setOnAction( actionEvent -> {
       //check box is marked
       if(debbugingCheckBox.isSelected()){

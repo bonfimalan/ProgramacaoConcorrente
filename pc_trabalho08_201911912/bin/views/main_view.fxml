@@ -61,6 +61,41 @@
                   <Image url="@../resources/images/carRed.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="work3" fitHeight="139.0" fitWidth="200.0" layoutX="25.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/trabalho03.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="work1" fitHeight="119.0" fitWidth="195.0" layoutX="145.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/trabalho01.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="work2" fitHeight="92.0" fitWidth="191.0" layoutX="365.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/trabalho02.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="work4" fitHeight="139.0" fitWidth="191.0" layoutX="255.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/trabalho04.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="work5" fitHeight="142.0" fitWidth="200.0" layoutX="477.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/trabalho05.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="work6" fitHeight="142.0" fitWidth="171.0" layoutX="155.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/trabalho06.PNG" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="work7" fitHeight="139.0" fitWidth="192.0" layoutX="365.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/trabalho07.PNG" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <VBox layoutX="700.0" prefHeight="530.0" prefWidth="150.0" spacing="5.0" AnchorPane.leftAnchor="700.0" AnchorPane.rightAnchor="0.0">
@@ -73,21 +108,77 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="Gray" />
+            <HBox layoutX="15.0" layoutY="111.0">
+               <children>
+                  <Label text="Gray" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="labelSpeedGray" text="40" />
+                  <Label text=" km/h" />
+               </children>
+            </HBox>
             <Slider fx:id="sliderGray" blockIncrement="5.0" max="25.0" min="5.0" rotate="180.0" style="-fx-background-color: #808080;" value="25.0" />
-            <Label layoutX="15.0" layoutY="37.0" text="Brown" />
+            <HBox layoutX="15.0" layoutY="517.0">
+               <children>
+                  <Label text="Brown" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="labelSpeedBrown" text="40" />
+                  <Label text=" km/h" />
+               </children>
+            </HBox>
             <Slider fx:id="sliderBrown" blockIncrement="5.0" layoutX="15.0" layoutY="60.0" max="25.0" min="5.0" rotate="180.0" style="-fx-background-color: #7F3300;" value="25.0" />
-            <Label layoutX="15.0" layoutY="79.0" text="Pink" />
+            <HBox layoutX="15.0" layoutY="519.0">
+               <children>
+                  <Label text="Pink" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="labelSpeedPink" text="40" />
+                  <Label text=" km/h" />
+               </children>
+            </HBox>
             <Slider fx:id="sliderPink" blockIncrement="5.0" layoutX="15.0" layoutY="101.0" max="25.0" min="5.0" rotate="180.0" style="-fx-background-color: #FF00DC;" value="25.0" />
-            <Label layoutX="15.0" layoutY="120.0" text="Blue" />
+            <HBox layoutX="15.0" layoutY="360.0">
+               <children>
+                  <Label text="Blue" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="labelSpeedBlue" text="40" />
+                  <Label text=" km/h" />
+               </children>
+            </HBox>
             <Slider fx:id="sliderBlue" blockIncrement="5.0" layoutX="15.0" layoutY="143.0" max="25.0" min="5.0" rotate="180.0" style="-fx-background-color: #0094FF;" value="25.0" />
-            <Label layoutX="15.0" layoutY="162.0" text="Black" />
+            <HBox layoutX="15.0" layoutY="525.0">
+               <children>
+                  <Label text="Black" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="labelSpeedBlack" text="40" />
+                  <Label text=" km/h" />
+               </children>
+            </HBox>
             <Slider fx:id="sliderBlack" blockIncrement="5.0" layoutX="15.0" layoutY="184.0" max="25.0" min="5.0" rotate="180.0" style="-fx-background-color: black;" value="25.0" />
-            <Label layoutX="15.0" layoutY="204.0" text="Red" />
+            <HBox layoutX="15.0" layoutY="523.0">
+               <children>
+                  <Label text="Red" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="labelSpeedRed" text="40" />
+                  <Label text=" km/h" />
+               </children>
+            </HBox>
             <Slider fx:id="sliderRed" blockIncrement="5.0" layoutX="15.0" layoutY="226.0" max="25.0" min="5.0" rotate="180.0" style="-fx-background-color: #FF1900;" value="25.0" />
-            <Label layoutX="15.0" layoutY="245.0" text="Yellow" />
+            <HBox layoutX="15.0" layoutY="517.0">
+               <children>
+                  <Label text="Yellow" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="labelSpeedYellow" text="40" />
+                  <Label text=" km/h" />
+               </children>
+            </HBox>
             <Slider fx:id="sliderYellow" blockIncrement="5.0" layoutX="15.0" layoutY="268.0" max="25.0" min="5.0" rotate="180.0" style="-fx-background-color: #FFF07F;" value="25.0" />
-            <Label layoutX="15.0" layoutY="296.0" text="Green" />
+            <HBox>
+               <children>
+                  <Label text="Green" />
+                  <Region prefHeight="2.0" prefWidth="2.0" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="labelSpeedGreen" text="40" />
+                  <Label text=" km/h" />
+               </children>
+            </HBox>
             <Slider fx:id="sliderGreen" blockIncrement="5.0" layoutX="15.0" layoutY="319.0" max="25.0" min="5.0" rotate="180.0" style="-fx-background-color: #267F00;" value="25.0" />
             <Region prefHeight="10.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <VBox fx:id="vboxPositions" alignment="CENTER" prefWidth="100.0" visible="false">
@@ -103,12 +194,10 @@
                   </HBox>
                </children>
             </VBox>
-            <CheckBox fx:id="debbugingCheckBox" mnemonicParsing="false" prefWidth="141.0" text="Debugging Tools" wrapText="true">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </CheckBox>
+            <CheckBox fx:id="debbugingCheckBox" mnemonicParsing="false" text="Debugging Tools" wrapText="true" />
+            <CheckBox fx:id="hideWorksCheckBox" layoutX="15.0" layoutY="520.0" mnemonicParsing="false" text="Hide Works" wrapText="true" />
          </children>
       </VBox>
+      <HBox layoutX="10.0" layoutY="10.0" prefHeight="18.0" prefWidth="141.0" />
    </children>
 </AnchorPane>

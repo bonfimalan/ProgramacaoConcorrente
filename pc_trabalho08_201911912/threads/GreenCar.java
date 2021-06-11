@@ -10,6 +10,7 @@
 package threads;
 
 import global.Variables;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
@@ -67,8 +68,7 @@ public class GreenCar extends SuperThread{
     }//end try
   }//end run
   
-  public GreenCar(Slider sliderSpeed, ImageView car) {
-    super(sliderSpeed, car);
-    //TODO Auto-generated constructor stub
+  public GreenCar(Slider sliderSpeed, ImageView car, Label labelSpeed) {
+    super(sliderSpeed, car, labelSpeed);
   }
 }
